@@ -8,43 +8,86 @@
   body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;max-width:720px;margin:40px auto;padding:0 20px;line-height:1.6;color:#1d1a14;background:#fdf8ee}
   h1{color:#0f3b2e} h2{color:#0f3b2e;margin-top:1.6em;font-size:1.1em} .meta{color:#6b5b3e}
   a{color:#1f6b4f} code{background:#f0e6cf;padding:1px 5px;border-radius:4px}
+  table{border-collapse:collapse;width:100%;margin:.6em 0} th,td{border:1px solid #d9c9a3;padding:6px 8px;text-align:left;vertical-align:top;font-size:.95em}
+  th{background:#f0e6cf}
 </style>
 </head>
 <body>
 <h1>QuranMate — Privacy Policy</h1>
-<p class="meta">Last updated: 2026-10-22</p>
+<p class="meta">Last updated: 2026-10-23</p>
 
-<p>QuranMate keeps everything on your device.</p>
+<p>QuranMate is a free Quran reading and memorization app published by Sowaan (Private) Limited
+(“we”, “us”). <strong>QuranMate keeps everything on your device. We do not collect your personal data.</strong>
+This page explains what the app does with the data on your phone, which outside services it talks to, and how the
+voice feature handles your voice.</p>
+
+<h2>Summary</h2>
+<ul>
+  <li>No account, no sign-in, no ads, no analytics, no crash reporting, no tracking.</li>
+  <li>Your bookmarks, notes, highlights, reading statistics and Hifz progress stay on your phone.</li>
+  <li>The app downloads the Quran text once, and streams recitation audio only when you play it.</li>
+  <li>Voice reveal in Hifz mode is optional. QuranMate never records, saves or sends your voice to us. How the
+      recognition itself is done depends on the option you pick: see “Microphone and voice reveal”.</li>
+</ul>
+
+<h2>What stays on your phone</h2>
+<p>Your bookmarks, notes, highlights, reading statistics (pages, time, streak), Hifz progress and settings are stored
+only in the app's private storage on your device. They are not uploaded anywhere and are removed when you uninstall
+the app. We cannot see them and cannot recover them for you.</p>
 
 <h2>What the app downloads</h2>
 <p>On first launch it downloads the Quran text and translations once from a public GitHub repository
 (<code>raw.githubusercontent.com/fawazahmed0/quran-api</code>). Recitation audio is streamed from
 <code>everyayah.com</code> only when you press play, and can be saved on your device for offline listening.
-These servers see an ordinary web request (IP address, user-agent) as any website would; QuranMate sends them
-nothing about you.</p>
+These servers see an ordinary web request (your IP address and the app's user-agent) as any website would;
+QuranMate sends them nothing else about you and we do not receive or store those requests.</p>
 
-<h2>What stays on your phone</h2>
-<p>Your bookmarks, notes, highlights, reading statistics (pages, time, streak), Hifz progress and settings are
-stored only in the app's private storage on your device. They are not uploaded anywhere and are removed when you
-uninstall the app.</p>
-
-<h2>Microphone and speech recognition</h2>
-<p>If you use <em>voice reveal</em> in Hifz mode, the app asks for microphone access. Speech recognition is
-performed by your device's own speech service (for example Google speech recognition, according to your device
-settings). If you turn on <em>offline voice recognition</em>, the app downloads a small recognition model (about
-19 MB) once from the developer's website (mubi64.github.io, or huggingface.co if that fails) and recognition then
-runs entirely on your phone. Either way QuranMate does not record, store or transmit your voice. While voice reveal
-is listening, the app keeps the screen awake so the session is not interrupted; this involves no data.</p>
+<h2>Microphone and voice reveal</h2>
+<p>If you use <em>voice reveal</em> in Hifz mode, the app asks for microphone access (and, if you use your device's
+speech service, speech-recognition access). It uses the microphone only while voice reveal is on, to follow your
+recitation and reveal the lines you recite. QuranMate does not record, save or send your voice to us. There are two
+ways recognition can run. The first time you use voice reveal, the app offers a choice: download the offline model, or
+use your device's speech service for that session. Once the offline model has been downloaded, voice reveal uses it.
+If the model cannot be loaded, the app falls back to your device's speech service.</p>
+<ul>
+  <li><strong>Offline recognition model.</strong> The app downloads a small recognition model (about 19 MB, “quran-asr-tiny”
+      by Abdou, MIT licence) once from our website (<code>mubi64.github.io</code>, or <code>huggingface.co</code> if that
+      fails). After that, recognition runs entirely on your phone: your voice never leaves the device, and the audio
+      is processed in memory and not stored.</li>
+  <li><strong>Your device's speech service.</strong> On iPhone this is Apple's Speech Recognition; on Android it is
+      Google's. The app passes the audio to that service, which processes it under its own privacy policy and, depending
+      on your device, language and settings, may send it to Apple or Google's servers. QuranMate does not control this and
+      does not receive the audio. If you want your voice to stay on your phone, download the offline model when the app
+      offers it.</li>
+</ul>
+<p>While voice reveal is listening, the app keeps the screen awake so the session is not interrupted; this involves no
+data. You can withdraw microphone or speech-recognition access at any time in your device's Settings.</p>
 
 <h2>Notifications</h2>
-<p>The optional daily review reminder is a local notification scheduled on your device.</p>
+<p>The optional daily review reminder is a local notification scheduled on your device. It involves no server.</p>
+
+<h2>Outside services the app uses</h2>
+<table>
+  <tr><th>Service</th><th>Used for</th><th>When</th></tr>
+  <tr><td>GitHub (<code>fawazahmed0/quran-api</code>)</td><td>Quran text and translations</td><td>Once, on first launch</td></tr>
+  <tr><td>everyayah.com</td><td>Recitation audio</td><td>When you press play or download a surah</td></tr>
+  <tr><td>mubi64.github.io, huggingface.co</td><td>Offline recognition model</td><td>Once, when you accept the download</td></tr>
+  <tr><td>Apple Speech Recognition / Google speech service</td><td>Voice reveal, when the offline model is not used</td><td>While voice reveal is listening</td></tr>
+</table>
+<p>None of these receives an account, an identifier or any of the data stored in the app from us.</p>
 
 <h2>What we do not do</h2>
-<p>We do not collect personal data, create accounts, show ads, sell data, or use analytics or crash-reporting
-services.</p>
+<p>We do not collect personal data, create accounts, show ads, sell or share data, track you across apps or websites,
+or use analytics or crash-reporting services.</p>
 
 <h2>Children</h2>
-<p>The app contains no ads or user-generated content and collects no data from anyone, including children.</p>
+<p>The app contains no ads, purchases or user-generated content shared with others, and collects no data from anyone,
+including children.</p>
+
+<h2>Your choices and your data</h2>
+<p>Because the data never leaves your device, you are in control of it: delete a bookmark, note or highlight in the
+app, or uninstall the app to remove everything. There is nothing held about you on our side to access, correct or
+delete.</p>
 
 <h2>Changes</h2>
 <p>If this ever changes (for example if optional crash reporting is added), this policy and the in-app text will be
